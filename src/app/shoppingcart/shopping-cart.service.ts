@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { UserService } from '../auth/user.service';
 import { ShoppingCart } from './model/shopping-cart';
-import { Book } from '../core/model/Book';
+import { Book } from '../core/model/book';
 
 export class ShoppingCartService {  
 

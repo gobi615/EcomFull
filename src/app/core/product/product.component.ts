@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BookService } from '../books-service';
-import {Book} from "../model/Book";
+import {Book} from "../model/book";
 import {map, take ,mergeMap} from 'rxjs/operators'
 import { Input } from '@angular/core';
 import { ShoppingCart } from 'src/app/shoppingcart/model/shopping-cart';

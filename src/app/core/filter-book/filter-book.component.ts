@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { mergeMap, map, switchMap } from 'rxjs/operators';
 import { BookService } from '../books-service';
-import { Book } from '../model/Book';
+import { Book } from '../model/book';
 
 @Component({
   selector: 'app-filter-book',

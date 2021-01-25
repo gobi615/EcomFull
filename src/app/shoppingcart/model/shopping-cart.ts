@@ -1,4 +1,4 @@
-import { Book } from "src/app/core/model/Book";
+import { Book } from "src/app/core/model/book";
 import { ShoppingCartItem } from "./shopping-cart-item";
 
 export class ShoppingCart{

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import {map, mergeMap, switchMap} from 'rxjs/operators'
-import { Book } from './model/Book';
+import { Book } from './model/book';
 
 @Injectable({
   providedIn: 'root'
