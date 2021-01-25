@@ -53,7 +53,7 @@ import { ShoppingCartService } from './shoppingcart/shopping-cart.service';
       {path : '',  component : FilterBookComponent},
       {path : 'get', component : FilterBookComponent},      
       {path:'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
-      {path:'orderpass', component: OrderSucessComponent, canActivate: [AuthGuardService]}
+     
     
     ]),
     BrowserAnimationsModule,
