@@ -26,6 +26,7 @@ import { CartComponent } from './checkout/cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { OrderSucessComponent } from './checkout/order-sucess/order-sucess.component';
 import { AuthGuardService } from './checkout/auth-guard.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -57,7 +58,7 @@ import { AuthGuardService } from './checkout/auth-guard.service';
     ]),
     BrowserAnimationsModule,
     MatRadioModule,
-    MatSlideToggleModule,CheckoutModule
+    MatSlideToggleModule,CheckoutModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
