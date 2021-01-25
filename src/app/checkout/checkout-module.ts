@@ -27,7 +27,7 @@ import { PaymentService } from './payment-service';
     CommonModule,BrowserModule,MaterialModule,FormsModule,RouterModule,
     RouterModule.forChild([
       {path:'cart', component: CartComponent},
-      {path:'orderpass', component: OrderSucessComponent, canActivate: [AuthGuardService]}
+      {path:'orderpass', component: OrderSucessComponent}
     ])
 
 
