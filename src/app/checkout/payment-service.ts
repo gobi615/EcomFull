@@ -19,13 +19,13 @@ export class PaymentService {
 
   createPayment(phno, amount){
       console.log('phno'+phno)
-    return this.http.post("http://localhost:8080/api/createPayment", {
+    return this.http.post("https://fullstackecombe.herokuapp.com/api/createPayment", {
         name : this.appUser.name,
         email : this.appUser.email,
         currency : 'INR',
         phno :phno,
         amount :amount,
-        redirectedTo : 'http://localhost:4200/orderpass?status=pass'        
+        redirectedTo : 'https://ecomfullstack.herokuapp.com/orderpass?status=pass'        
     })
   }
 
