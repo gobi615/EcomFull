@@ -54,7 +54,7 @@ import { ShoppingCartService } from './shoppingcart/shopping-cart.service';
       {path : 'get', component : FilterBookComponent},      
       {path:'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
       {path:'cart', component: CartComponent},
-      {path:'#/orderpass', component: OrderSucessComponent, canActivate: [AuthGuardService]}
+      {path:'orderpass', component: OrderSucessComponent, canActivate: [AuthGuardService]}
     
     ],{useHash: true}),
     BrowserAnimationsModule,
