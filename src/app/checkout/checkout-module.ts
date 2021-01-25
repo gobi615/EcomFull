@@ -24,11 +24,14 @@ import { PaymentService } from './payment-service';
     PaymentComponent,
   ],
   imports: [
-    CommonModule,BrowserModule,MaterialModule,FormsModule,RouterModule
+    CommonModule,BrowserModule,MaterialModule,FormsModule,RouterModule,
+    RouterModule.forChild([
+      {path:'cart', component: CartComponent},
+    ])
+
 
   ],
   providers : [
-    OrderService,AuthGuardService,PaymentService 
   ]
 })
 export class CheckoutModule { }

@@ -38,12 +38,13 @@ prdCol;
 
   getRandomImage(){
     let img = this.images[Math.floor(Math.random()*10)].Image ;
-    console.log(img);
+    // console.log(img);
     return img;
   }
 
   async initCart(){
-    this.cart$ = await this.cartService.getCart();
+    await this.cartService.getCart();
+   setTimeout(async () =>  this.cart$ =  await this.cartService.getCart(),100);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -68,7 +69,7 @@ prdCol;
     this.cartService.addToCart(book);
     // this.cartService.
   }
-  removeOne(book: Book){
-    this.cartService.removeFromCart(book);
+  async removeOne(book: Book){
+    await this.cartService.removeFromCart(book);
   }
 }

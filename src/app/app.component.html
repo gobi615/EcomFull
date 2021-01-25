@@ -3,7 +3,7 @@
 </header>
 
 <main>
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
 </main>
 
 <footer>

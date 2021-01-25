@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/auth.service';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { User } from 'src/app/auth/model/user';
-import { ShoppingCartService } from 'src/app/shoppingcart/shopping-cart.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   
   @Input('cart') cart;
 
-  constructor(public dialog: MatDialog,private auth : AuthService, private cartService : ShoppingCartService ) {}
+  constructor(public dialog: MatDialog,private auth : AuthService) {}
 
   openDialog() {
     this.dialog.open(LoginComponent);

@@ -24,13 +24,22 @@ export class AppComponent {
     private cartService: ShoppingCartService){ }
 
     async ngOnInit(){
-      this.cart$ = await this.cartService.getCart();
+      setTimeout(async()=>{
+        this.cart$ = await this.cartService.getCart();
       this.cartId = 'Hello';
-      this.cart$.pipe(map<any,any>(cart => {
+      console.log('Gobi Gobi app')
+      this.cart$.pipe(map(cart => {
         this.cartId = cart.key
-        console.log(this.cartId)
+        console.log("from app"+this.cartId)
       }))
-    
+      },100);
+      
+
 }
+
+// onOutletLoaded(component){
+//         component.cart$ = this.cart$;
+//         component.cartService = this.cartService;
+// }
 
 }

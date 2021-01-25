@@ -28,7 +28,7 @@ export class OrderService {
 
   async placeOrder(order){
     let result = await this.db.list('/orders').push(order);
-    this.cartService.clearCart();
+    await this.cartService.clearCart();
     // this.router.navigate(['/']);
     location.reload();
     // setTimeout(function(){

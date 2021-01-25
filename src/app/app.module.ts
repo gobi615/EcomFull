@@ -27,6 +27,7 @@ import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { OrderSucessComponent } from './checkout/order-sucess/order-sucess.component';
 import { AuthGuardService } from './checkout/auth-guard.service';
 import { FormsModule } from '@angular/forms';
+import { ShoppingCartService } from './shoppingcart/shopping-cart.service';
 
 
 @NgModule({
@@ -50,8 +51,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     RouterModule.forRoot([
       {path : '',  component : FilterBookComponent},
-      {path : 'get', component : FilterBookComponent},
-      {path:'cart', component: CartComponent},
+      {path : 'get', component : FilterBookComponent},      
       {path:'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
       {path:'orderpass', component: OrderSucessComponent, canActivate: [AuthGuardService]}
     
@@ -60,7 +60,9 @@ import { FormsModule } from '@angular/forms';
     MatRadioModule,
     MatSlideToggleModule,CheckoutModule,FormsModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent],
   entryComponents : [
     LoginComponent

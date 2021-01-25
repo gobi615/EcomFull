@@ -10,20 +10,28 @@ import { UserService } from '../auth/user.service';
 import { ShoppingCart } from './model/shopping-cart';
 import { Book } from '../core/model/book';
 
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ShoppingCartService {  
 
   appUser; 
   uCartId;
- 
+  initCart : Promise<Observable<ShoppingCart>> ;
   constructor(private db : AngularFireDatabase, private userService: UserService, private authService: AuthService) { 
-    
+    this.initCart = this.getCart();
   }
 
-  async getCart(){
+  async getCart(arg?){
     let cartId = await this.getOrCreateCart();
-    // console.log(cartId);
-    return this.getShopCart(cartId);
+    console.log("appcpmponent getcart:"+cartId);
+    return await this.getShopCart(cartId);
   }
+
+  // async getInitCart(){
+    
+  // }
 
   async getShopCart(cartId : string){
     let cart$ = this.db.object<any>('/shopping-cart/'+cartId).snapshotChanges();
@@ -32,7 +40,9 @@ export class ShoppingCartService {
         localStorage.removeItem("cartId");
         location.reload();                //reload the page
       }
-    
+      console.log("cart.payload.val().items 1"+cart.payload.val().items)
+      // console.log("cart.payload.val().items 2"+cart.payload.val().items[1].quantity);
+      console.log("cart.payload.key"+cart.payload.key);
       let shopKart = new ShoppingCart(cart.payload.val().items,cart.payload.key);
       // localStorage.setItem('kart', JSON.stringify(shopKart));
       // console.log('shopping cart : '+JSON.stringify(shopKart));
@@ -41,13 +51,13 @@ export class ShoppingCartService {
   }
   
 
-  addToCart(book: Book){
-    this.updateCart(book, 1);
+  async addToCart(book: Book){
+    await this.updateCart(book, 1);
   }
 
   async updateCart(book :Book, change: number){
     let cartId = await this.getOrCreateCart();
-    console.log(book.bookID);
+    // console.log(book.bookID);
     let item$ = this.db.object<any>('/shopping-cart/'+cartId+'/items/'+book.bookID);    
     item$.valueChanges().pipe(take(1)).subscribe(item => {
       let quantity =  (item != null) ? item.quantity + change : (change < 0) ? 0 : change ;            
@@ -73,9 +83,11 @@ export class ShoppingCartService {
       }  
       
       let result = await this.createCart();
+    
       console.log('cart null: '+result);
-      localStorage.setItem('cartId',result.key);
+      localStorage.setItem('cartId',result.key);    
       this.saveCartToUser(result.key);
+      // location.reload();   
       return result.key;
     }
     return cartId;   
@@ -95,8 +107,8 @@ export class ShoppingCartService {
     });
   }
 
-  removeFromCart(book: Book): any {
-    this.updateCart(book, -1);
+  async removeFromCart(book: Book) {
+    await this.updateCart(book, -1);
   }
 
   async clearCart() {
@@ -123,9 +135,9 @@ export class ShoppingCartService {
             console.log('executing 2'+JSON.stringify(shopCart));
             shopCart.pipe(take(1)).subscribe((cart)=>{
               console.log('executing 3');
-              cart.items.forEach((item)=>{
+              cart.items.forEach(async (item)=> {
                 console.log('executing 4');
-                this.updateCart({title : item.title, price : item.price, url : item.imageUrl, bookID : item.bookID,authors : null,average_rating : null, isbn : null, language_code : null, ratings_count : null }, item.quantity);
+                await this.updateCart({title : item.title, price : item.price, url : item.imageUrl, bookID : item.bookID,authors : null,average_rating : null, isbn : null, language_code : null, ratings_count : null }, item.quantity);
               });
               this.saveCartToUser(localCart);
             }) ;            

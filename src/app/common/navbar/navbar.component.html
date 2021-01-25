@@ -28,7 +28,7 @@
            </li>
             <li class="nav-item it4">
                 <a routerLink="cart">
-                    <span *ngIf="cart | async as c">           
+                    <span *ngIf="cart | async as c">    
                         <mat-icon matBadge="{{c.totalItemsCount}}">shopping_cart</mat-icon>
                     </span>
                 </a>

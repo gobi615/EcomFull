@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material';
+import { Observable } from 'rxjs';
+import { ShoppingCart } from 'src/app/shoppingcart/model/shopping-cart';
 import { ShoppingCartService } from 'src/app/shoppingcart/shopping-cart.service';
 
 @Component({
@@ -11,7 +13,7 @@ import { ShoppingCartService } from 'src/app/shoppingcart/shopping-cart.service'
 export class CartComponent implements OnInit {
 
   displayedColumns : String[] = ['title', 'price', 'quantity', 'total'] ;
-  cart$; 
+  cart$ :Observable<ShoppingCart> ; 
   cart = [] ; 
   datasource;
   temp = 'global';
@@ -24,8 +26,11 @@ export class CartComponent implements OnInit {
   }
 
   async init(){
-    this.cart$ = await this.cartService.getCart();
+    console.log('Calling getcart');
+    this.cart$ = await this.cartService.getCart(2);
+    console.log('cart$$$$'+JSON.stringify(this.cart$))
     this.cart$.subscribe(item => {
+      console.log("this.datasource"+this.datasource+","+item.key);
       this.datasource = new MatTableDataSource(item.items);     
     });  
   }

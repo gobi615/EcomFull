@@ -11,6 +11,7 @@ export class ShoppingCart{
 
         for(let bookID in itemsMap){
             let item = itemsMap[bookID];
+            console.log("in shopcart const"+{ ...item, bookID: bookID })
             this.items.push(new ShoppingCartItem({ ...item, bookID: bookID }));
         }
 
@@ -30,8 +31,10 @@ export class ShoppingCart{
       
     get totalItemsCount() {
         let count = 0;
+        console.log("item map"+this.itemsMap.toString());
         for (let bookID in this.itemsMap) 
             count += this.itemsMap[bookID].quantity;
+        console.log("get count"+count);
         return count;
     }
     

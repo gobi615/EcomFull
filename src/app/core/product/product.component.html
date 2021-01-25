@@ -23,9 +23,9 @@
                     <button (click)="addOne(book)" mat-button>
                         <mat-icon>add_shopping_cart</mat-icon>
                     </button>
-                  
+                    <!-- {{cart}} -->
                     <button mat-button *ngIf="cart$ | async as cart">
-                        {{cart.getQuantity(book)}}
+                        {{cart.getQuantity(book)}}                        
                     </button>
                     <button (click)="removeOne(book)" mat-button>
                         <mat-icon>remove_shopping_cart</mat-icon>

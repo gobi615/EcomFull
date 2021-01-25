@@ -10,7 +10,7 @@ import { ShoppingCartService } from './shopping-cart.service';
     CommonModule
   ],
   providers : [
-    ShoppingCartService
+    
   ]
 })
 export class ShoppingCartModule { }
