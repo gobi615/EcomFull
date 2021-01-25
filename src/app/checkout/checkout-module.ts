@@ -25,10 +25,9 @@ import { PaymentService } from './payment-service';
   ],
   imports: [
     CommonModule,BrowserModule,MaterialModule,FormsModule,RouterModule,
-    RouterModule.forChild([
-      {path:'cart', component: CartComponent},
-      {path:'orderpass', component: OrderSucessComponent}
-    ])
+    // RouterModule.forChild([
+      
+    // ], )
 
 
   ],
