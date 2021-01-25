@@ -1,0 +1,4 @@
+{
+    "bookServiceEndPoint" : "https://s3-ap-southeast-1.amazonaws.com/he-public-data/books8f8fe52.json",
+    "bookImageServiceEndPoint" : "https://s3-ap-southeast-1.amazonaws.com/he-public-data/bookimage816b123.json"
+}

@@ -1,0 +1,56 @@
+#header{
+    width: 100%;
+    background-color: aquamarine;
+}
+.nav-logo{
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
+#header-nav{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-nav > ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-item{
+    line-height: 3em;
+    margin: 0 1em;
+}
+.nav-logo > a{
+    display: inline-block;
+    line-height: 3em;
+    text-decoration: none;
+}
+
+.nav-item{
+    text-align: center;
+}
+
+.search-container {
+    float: right;
+  }
+  
+ input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .search-container button {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }

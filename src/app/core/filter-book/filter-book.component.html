@@ -1,0 +1,11 @@
+
+<section class="sort">
+    <button mat-button [matMenuTriggerFor]="menu">Sort By</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/get']" [queryParams]="{ sort:'rating'}">Average Rating</button>
+    </mat-menu>
+</section>
+
+<section>
+    <app-product [books] = "books" [images] = "images"></app-product>
+</section>

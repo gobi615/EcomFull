@@ -1,0 +1,39 @@
+<section>
+    <mat-grid-list  cols={{prdCol}} rowHeight="400px" class="in-container">
+        <mat-grid-tile *ngFor = "let book of books | async" class="prd-card">
+            <mat-card > 
+                <div class="out-img-div">
+                    <div class="img-div" [ngStyle]="{'background-image':'url('+ getRandomImage() +')'}">     
+                      
+                    </div> 
+                </div>
+                <mat-card-content class="prd-cont">
+                    <div class="prd-tit">
+                        <b>{{book.title}}</b> 
+                    </div>    
+                    <div class="prd-prc">         
+                        <b class="price">{{book.price | currency: 'INR': 'symbol': '1.0-0':'en-IN'}}</b>
+                        <b class="rating"><span class="fa fa-star checked"> </span>  {{book.average_rating}}</b>           
+                    </div>  
+                    <div class="prd-rat">
+                        
+                    </div>              
+                </mat-card-content>
+                <div class="prd-act" >
+                    <button (click)="addOne(book)" mat-button>
+                        <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                  
+                    <button mat-button *ngIf="cart$ | async as cart">
+                        {{cart.getQuantity(book)}}
+                    </button>
+                    <button (click)="removeOne(book)" mat-button>
+                        <mat-icon>remove_shopping_cart</mat-icon>
+                    </button>
+                </div>      
+            </mat-card>   
+               
+        </mat-grid-tile> 
+    </mat-grid-list>
+    
+</section>

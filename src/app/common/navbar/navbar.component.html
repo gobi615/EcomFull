@@ -1,0 +1,39 @@
+
+<div id= "header">
+    <nav id="header-nav">
+        <div class="nav-logo">
+            <a href="">OneBookStore</a>  
+        </div>
+               
+        <ul class="nav-head">
+           
+            <div class="search-container">
+                <form >
+                  <input type="text" placeholder="Search.." #input name="search">
+                  <button type="submit" [routerLink]="['/get']" [queryParams]="{ search:  input.value}">Search</button>
+                </form>
+              </div> 
+            <ng-template #anonymsUser>
+                <li class="nav-item it3">
+                    <button mat-button (click)="openDialog()">Login</button>
+                </li>
+            </ng-template>
+           <li *ngIf = "appUser ; else anonymsUser" class="nav-item it3">
+              <button class="user-name" mat-button [matMenuTriggerFor]="menu">{{appUser.name}}
+                <mat-icon>arrow_drop_down</mat-icon>
+              </button>        
+              <mat-menu #menu="matMenu" xPosition="after">
+                <button (click)="logout()" mat-menu-item>Sign Out</button>          
+              </mat-menu>  
+           </li>
+            <li class="nav-item it4">
+                <a routerLink="cart">
+                    <span *ngIf="cart | async as c">           
+                        <mat-icon matBadge="{{c.totalItemsCount}}">shopping_cart</mat-icon>
+                    </span>
+                </a>
+            </li>        
+        </ul>
+    </nav>
+</div>
+
