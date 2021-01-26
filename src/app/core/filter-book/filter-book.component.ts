@@ -32,6 +32,7 @@ export class FilterBookComponent implements OnInit {
           this.images = url;
           console.log(this.queryParam);
           return this.bookService.getProducts().pipe(map( books =>{
+            books = this.assignImage(books);
             if(this.queryParam){
               if(this.queryParam.sort === 'rating'){
                     books = this.sortByRating(books);
@@ -54,6 +55,13 @@ export class FilterBookComponent implements OnInit {
     //   this.books = this.books.map(data => data.slice(0,10));
     //   }); 
 
+  }
+
+  assignImage(books){
+    return books.map(book =>{
+      book.url = this.images[Math.floor(Math.random()*10)].Image ;
+      return book;
+    }) ;
   }
 
   searchByTitle(word, books : Book[]){

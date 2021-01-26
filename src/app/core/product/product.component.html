@@ -3,7 +3,7 @@
         <mat-grid-tile *ngFor = "let book of books | async" class="prd-card">
             <mat-card > 
                 <div class="out-img-div">
-                    <div class="img-div" [ngStyle]="{'background-image':'url('+ getRandomImage() +')'}">     
+                    <div class="img-div" [ngStyle]="{'background-image':'url('+ book.url +')'}">     
                       
                     </div> 
                 </div>
