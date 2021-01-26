@@ -12,6 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { FilterBookComponent } from "./filter-book/filter-book.component";
 import { MaterialModule } from "../material-module.module";
 import { FormsModule } from "@angular/forms";
+import { MatTooltipModule } from "@angular/material";
 
 
 
@@ -27,7 +28,8 @@ import { FormsModule } from "@angular/forms";
         RouterModule.forChild([]),
         MatGridListModule,
         MatButtonModule,
-        MatIconModule, FormsModule
+        MatIconModule, FormsModule, 
+        MatTooltipModule
         // MatRadioModule
     ],
     exports : [

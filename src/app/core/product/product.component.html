@@ -9,7 +9,8 @@
                 </div>
                 <mat-card-content class="prd-cont">
                     <div class="prd-tit">
-                        <b>{{book.title}}</b> 
+                        <Strong matTooltip={{book.title}}  >{{book.title}}</Strong>  
+                        <!-- matTooltipPosition ="after" -->
                     </div>    
                     <div class="prd-prc">         
                         <b class="price">{{book.price | currency: 'INR': 'symbol': '1.0-0':'en-IN'}}</b>
