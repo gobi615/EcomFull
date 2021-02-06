@@ -23,14 +23,14 @@ export class FilterBookComponent implements OnInit {
   constructor(private bookService : BookService, private route: ActivatedRoute) { 
     this.queryParam = this.route.snapshot.queryParams;
    
-     this.books = this.getProducts();
+    this.books = this.getProducts();
       
   }
 
   getProducts(){
       return this.bookService.getImageUrl().pipe(mergeMap(url => {
           this.images = url;
-          console.log(this.queryParam);
+          console.log("route:"+this.queryParam.search);
           return this.bookService.getProducts().pipe(map( books =>{
             books = this.assignImage(books);
             if(this.queryParam){
