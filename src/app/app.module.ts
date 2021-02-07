@@ -56,7 +56,7 @@ import { ShoppingCartService } from './shoppingcart/shopping-cart.service';
       {path:'cart', component: CartComponent},
       {path:'orderpass', component: OrderSucessComponent, canActivate: [AuthGuardService]}
     
-    ],{useHash: true}),
+    ]),  //{useHash: true}
     BrowserAnimationsModule,
     MatRadioModule,
     MatSlideToggleModule,CheckoutModule,FormsModule

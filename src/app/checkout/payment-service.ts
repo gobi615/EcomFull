@@ -25,7 +25,7 @@ export class PaymentService {
         currency : 'INR',
         phno :phno,
         amount :amount,
-        redirectedTo : 'https://ecomfullstack.herokuapp.com/#/orderpass?status=pass'      
+        redirectedTo : 'https://ecomfullstack.herokuapp.com/orderpass?status=pass'      
     })
   }
 
